@@ -24,7 +24,7 @@ public class ArbolBinario{
 
 
 
-        }else if (value < padre.getValue()){
+        }else if (value > padre.getValue()){
             //ME VOY A LA DERECHA
 
             padre.setRight(insertRec(padre.getRight(), value));
@@ -35,6 +35,64 @@ public class ArbolBinario{
          */
         return padre;
     }
+    public void inOrderTraversal() {
+        inOrderRec(root);
+        System.out.println();
+    }
+
+    private void inOrderRec(Node node) {
+        if (node != null) {
+            inOrderRec(node.getLeft());
+            System.out.print(node.getValue() + " ");
+            inOrderRec(node.getRight());
+        }
+    }
+
+    public void preOrderTraversal() {
+        preOrderRec(root);
+        System.out.println();
+    }
+
+    private void preOrderRec(Node node) {
+        if (node != null) {
+            System.out.print(node.getValue() + " ");
+            preOrderRec(node.getLeft());
+            preOrderRec(node.getRight());
+        }
+    }
+
+    public void imprimirArbol(){
+        imprimir(root);
+    }
+    //Metodo recursivo para imprimir el arbol binario
+
+    private void imprimir(Node node){
+        if(node != null){
+            imprimir(node.getLeft());
+            System.out.print(node.getValue() + " ");
+            imprimir(node.getRight());
+        }
+    }
+
+    public boolean buscar(int value){
+        return buscarRec(root,value);
+
+    }
+    private boolean buscarRec(Node node, int value){
+        if(node == null) {
+            return false;
+        }else if (value == node.getValue()){
+            return true;
+        }else if (value < node.getValue()){
+            return buscarRec(node.getLeft(),value);
+        }else{
+            return buscarRec(node.getRight(),value);
+
+        }
+        
+    }
+            
+
 
      
 }
