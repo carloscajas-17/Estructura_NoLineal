@@ -58,7 +58,7 @@ public class ArbolBinario {
     private void imprimir(Node node) {
         if (node != null) {
             imprimir(node.getLeft());
-            System.out.println(node.getValue() + "(H = " + getHeightRec(node) + ")");
+            System.out.print(node.getValue() + "(H = " + getHeightRec(node) + ")");
             imprimir(node.getRight());
         }
     }
@@ -72,7 +72,7 @@ public class ArbolBinario {
         if (node != null) {
             imprimirBFRec(node.getLeft());
             int bf = factorEquilibrioRec(node);
-            System.out.println(node.getValue() + "(BF = " + bf + ")");
+            System.out.print(node.getValue() + "(BF = " + bf + ")");
             imprimirBFRec(node.getRight());
         }
     }
